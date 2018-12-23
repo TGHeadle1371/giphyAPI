@@ -64,6 +64,7 @@ $(document).ready(function () {
             // Build api search by defining term, api key, and chaining URL
             var term = $(this).attr("data-topic");
             var apiKey = "WSY305l72MwB3JpnUG74hV5Fp85piPgx";
+            //Api search + term + limit of 10 + api key
             var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + term + "&limit=10&api_key=" + apiKey;
 
             //Ajax call
@@ -85,6 +86,10 @@ $(document).ready(function () {
                     // Create div for gifs
                     var gifDiv = $("<div>");
                     gifDiv.addClass("gifDiv");
+
+                    //Create title
+                    var title = $("<p>");
+                    title.text("Title: " + data[i].title);
 
                     // Create rating paragraph
                     var rating = $("<p>");
@@ -114,10 +119,12 @@ $(document).ready(function () {
                         }
 
                     });
-                    //Append rating and gif
+
+                    //Append title rating and gif 
+                    title.appendTo(gifDiv);
                     rating.appendTo(gifDiv);
                     gif.appendTo(gifDiv);
-
+                    
                     $("#gifs").append(gifDiv);
                 }
             });
