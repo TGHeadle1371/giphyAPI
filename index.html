@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Giphy API</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<!-- Container -->
+
+<body>
+    <div class="header container-fluid text-center" id="header">
+      Check out These U.S. State related Gifs!
+    </div>
+    <br>
+    <div class="container">
+
+        <div id="terms" class="col-md-12">
+        </div>
+
+        <div id="gifs" class="col-md-8">
+        </div>
+        <!-- Search input -->
+        <div id="addTerm" class="col-md-4 pull-right form-group">
+            <label>Add somewhere you like:</label>
+            <input type="text" id="term-input" class="form-control">
+            <button type="submit" id="add" class="btn btn-default">Add</button>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/giphyAPI.js"></script>
+</body>
+
+</html>

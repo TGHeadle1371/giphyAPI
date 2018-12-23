@@ -1,0 +1,17 @@
+* {
+    font-family: 'Quicksand', sans-serif;
+
+}
+#header {
+    font-size: 30px;
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+    font-family: 'Cinzel', serif;
+    background-color: rgb(6, 89, 167);
+    color: #ffffff;
+}
+#addTerm {
+    padding-top: 10px;
+    font-size: 20px;
+    border-left: 5px solid #000000;
+}
