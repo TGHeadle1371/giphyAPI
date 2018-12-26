@@ -95,7 +95,7 @@ $(document).ready(function () {
                     var rating = $("<p>");
                     //Set rating text
                     rating.text("Rating: " + data[i].rating);
-
+                    
                     // Create gifs and set attr
                     var gif = $("<img>").addClass("gif");
                     gif.attr("src", data[i].images.fixed_height_still.url);
@@ -154,11 +154,7 @@ $(document).ready(function () {
             addBtn(term);
         }
     });
-    // //Download on click
-    // $('#download').click(function (e) {
-    //     e.preventDefault();  //stop the browser from following
-    //     window.location.href = search;
-    // });
+    
     //Add the terms
     addAllTerms();
 });
