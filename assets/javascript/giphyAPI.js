@@ -95,7 +95,7 @@ $(document).ready(function () {
                     var rating = $("<p>");
                     //Set rating text
                     rating.text("Rating: " + data[i].rating);
-                    
+
                     // Create gifs and set attr
                     var gif = $("<img>").addClass("gif");
                     gif.attr("src", data[i].images.fixed_height_still.url);
@@ -104,7 +104,7 @@ $(document).ready(function () {
                     gif.attr("data-animate", data[i].images.fixed_height.url);
 
                     //Create gif on click play 
-                    gif.on("click", function() {
+                    gif.on("click", function () {
                         //Create state variable for the playing state of the gif
                         var gifImg = $(this).attr("data-gifImg");
 
@@ -119,13 +119,13 @@ $(document).ready(function () {
                         }
 
                     });
-                    
+
 
                     //Append title rating and gif 
                     title.appendTo(gifDiv);
                     rating.appendTo(gifDiv);
                     gif.appendTo(gifDiv);
-                    
+
                     $("#gifs").append(gifDiv);
                 }
             });
@@ -135,7 +135,7 @@ $(document).ready(function () {
         $("#terms").append(searchBtn);
 
     };
-
+    //Added terms to buttons
     var addAllTerms = function () {
         for (var i = 0; i < terms.length; i++) {
             addBtn(terms[i]);
@@ -154,7 +154,7 @@ $(document).ready(function () {
             addBtn(term);
         }
     });
-    
+
     //Add the terms
     addAllTerms();
 });

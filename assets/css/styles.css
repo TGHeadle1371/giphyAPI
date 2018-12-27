@@ -1,16 +1,36 @@
+/* Page font style */
 * {
     font-family: 'Quicksand', sans-serif;
     font-size: 18px;
 }
+/* Header style (font, background color, font-color*/
 #header {
     font-size: 30px;
-    padding: 10px;
+    padding: 1rem;
     border-bottom: 1px solid #000000;
     font-family: 'Cinzel', serif;
     background-color: rgb(6, 89, 167);
     color: #ffffff;
 }
+/* add padding to show full gif */
+body {
+    padding-bottom:60px;
+}
+/* Padding to space terms */
 #addTerm {
     padding-top: 10px;
     font-size: 20px;
+}
+/* Footer styling */
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    background-color: rgb(6, 89, 167);
+    color: #ffffff;
+    margin-top: 5px;
 }
