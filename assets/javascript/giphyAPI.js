@@ -65,7 +65,7 @@ $(document).ready(function () {
             var term = $(this).attr("data-search");
             var apiKey = "WSY305l72MwB3JpnUG74hV5Fp85piPgx";
             //Api search + term + limit of 10 + api key
-            var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + term + "&limit=10&api_key=" + apiKey;
+            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + term + "&limit=10&api_key=" + apiKey;
 
             //Ajax call
             $.ajax({
