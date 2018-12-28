@@ -61,7 +61,7 @@ $(document).ready(function () {
         var searchBtn = $('<button>').addClass("search btn btn-primary").attr("data-search", search).text(search);
         // on button click, run function
         searchBtn.on("click", function () {
-            // Build api search by defining term, api key, and chaining URL
+            // Build Giphy API search by defining term, api key, and chaining URL
             var term = $(this).attr("data-search");
             var apiKey = "WSY305l72MwB3JpnUG74hV5Fp85piPgx";
             //Api search + term + limit of 10 + api key
@@ -125,6 +125,10 @@ $(document).ready(function () {
                     title.appendTo(gifDiv);
                     rating.appendTo(gifDiv);
                     gif.appendTo(gifDiv);
+                    //Turn down the volume of the audio
+                    var audio = document.getElementById("audiotag1");
+                    audio.volume = 0.4;
+                    audio.play();
 
                     $("#gifs").append(gifDiv);
                 }
@@ -157,4 +161,5 @@ $(document).ready(function () {
 
     //Add the terms
     addAllTerms();
+
 });
