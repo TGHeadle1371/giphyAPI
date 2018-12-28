@@ -61,6 +61,11 @@ $(document).ready(function () {
         var searchBtn = $('<button>').addClass("search btn btn-primary").attr("data-search", search).text(search);
         // on button click, run function
         searchBtn.on("click", function () {
+            //Play audiotag2
+            var audio2 = document.getElementById("audiotag2");
+            audio2.volume = 0.6;
+            audio2.play();
+
             // Build Giphy API search by defining term, api key, and chaining URL
             var term = $(this).attr("data-search");
             var apiKey = "WSY305l72MwB3JpnUG74hV5Fp85piPgx";
@@ -105,6 +110,13 @@ $(document).ready(function () {
 
                     //Create gif on click play 
                     gif.on("click", function () {
+                        //Play audiotag3
+                        var audio3 = document.getElementById("audiotag3");
+                        var audio4 = document.getElementById("audiotag4");
+                        audio3.volume = 0.6;
+                        audio4.volume = 0.6;
+
+
                         //Create state variable for the playing state of the gif
                         var gifImg = $(this).attr("data-gifImg");
 
@@ -112,10 +124,12 @@ $(document).ready(function () {
                             //If still, animate
                             $(this).attr("data-gifImg", "animate");
                             $(this).attr("src", $(this).attr("data-animate"));
+                            audio3.play();
                         } else if (gifImg === "animate") {
                             //Make gif still
                             $(this).attr("data-gifImg", "still");
                             $(this).attr("src", $(this).attr("data-still"));
+                            audio4.play();
                         }
 
                     });
@@ -125,10 +139,12 @@ $(document).ready(function () {
                     title.appendTo(gifDiv);
                     rating.appendTo(gifDiv);
                     gif.appendTo(gifDiv);
-                    //Turn down the volume of the audio
+
+                    //Turn down the volume of the audio, play audiotag1
                     var audio = document.getElementById("audiotag1");
                     audio.volume = 0.4;
                     audio.play();
+
 
                     $("#gifs").append(gifDiv);
                 }
@@ -149,6 +165,10 @@ $(document).ready(function () {
     //Event listener
     //Add gif On click function
     $("#add").on("click", function (event) {
+        //Play audiotag2
+        var audio5 = document.getElementById("audiotag5");
+        audio5.volume = 0.6;
+        audio5.play();
         //No refresh
         event.preventDefault();
         var term = $("#term-input").val().trim();
