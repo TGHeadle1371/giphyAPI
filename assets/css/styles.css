@@ -16,6 +16,9 @@
 body {
     padding-bottom:60px;
 }
+#add {
+    font-size: 18px;
+}
 /* Padding to space terms */
 #addTerm {
     padding-top: 10px;

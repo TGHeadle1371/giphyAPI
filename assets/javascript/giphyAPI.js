@@ -145,6 +145,9 @@ $(document).ready(function () {
                     audio.volume = 0.4;
                     audio.play();
 
+                    $("#mute").on("click", function (event) {
+                        audio.pause();
+                    });
 
                     $("#gifs").append(gifDiv);
                 }
