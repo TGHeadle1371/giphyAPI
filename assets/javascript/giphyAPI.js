@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     // Global Variables
-    var terms = [
+    var topics = [
         "Alabama",
         "Alaska",
         "Arizona",
@@ -66,11 +66,11 @@ $(document).ready(function () {
             audio2.volume = 0.6;
             audio2.play();
 
-            // Build Giphy API search by defining term, api key, and chaining URL
-            var term = $(this).attr("data-search");
+            // Build Giphy API search by defining topic, api key, and chaining URL
+            var topic = $(this).attr("data-search");
             var apiKey = "WSY305l72MwB3JpnUG74hV5Fp85piPgx";
-            //Api search + term + limit of 10 + api key
-            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + term + "&limit=10&api_key=" + apiKey;
+            //Api search + topic + limit of 10 + api key
+            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&limit=10&api_key=" + apiKey;
 
             //Ajax call
             $.ajax({
@@ -148,17 +148,41 @@ $(document).ready(function () {
 
                     $("#gifs").append(gifDiv);
                 }
+                //      // When users click "save-name"
+                //      $("#favoritesBtn").on("click", function (event) {
+                //          // This line prevents the page from refreshing when a user hits "enter".
+                //          event.preventDefault();
+
+                //          // Clear the HTML from the greeting header
+                //          $("#favorites").html("");
+
+                //          // Grab the user input
+                //          var favorites = $("#favorites").val().trim();
+
+                //          // Clear absolutely everything stored in localStorage using localStorage.clear()
+                //          localStorage.clear();
+
+                //          // Store the username into localStorage using "localStorage.setItem"
+                //          localStorage.setItem("favorites-", favorites);
+
+                //          // And display that name for the user using "localStorage.getItem"
+                //          $("#favorites").text(localStorage.getItem("favorites"));
+
+                //      });
+
+                //      // By default (upon load) show the name stored in localStorage using "localStorage.getItem"
+                //      $("#greeting").text(localStorage.getItem("name"));
             });
 
         });
-        //Append terms
-        $("#terms").append(searchBtn);
+        //Append topics
+        $("#topics").append(searchBtn);
 
     };
-    //Added terms to buttons
-    var addAllTerms = function () {
-        for (var i = 0; i < terms.length; i++) {
-            addBtn(terms[i]);
+    //Added topics to buttons
+    var addAllTopics = function () {
+        for (var i = 0; i < topics.length; i++) {
+            addBtn(topics[i]);
         }
     };
 
@@ -171,15 +195,14 @@ $(document).ready(function () {
         audio5.play();
         //No refresh
         event.preventDefault();
-        var term = $("#term-input").val().trim();
+        var topic = $("#topic-input").val().trim();
 
-        if (term.length > 0) {
-            terms.push(term);
-            addBtn(term);
+        if (topic.length > 0) {
+            topics.push(topic);
+            addBtn(topic);
         }
     });
 
-    //Add the terms
-    addAllTerms();
-
+    //Add the topics
+    addAllTopics();
 });
