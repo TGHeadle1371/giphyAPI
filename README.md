@@ -2,7 +2,7 @@
 
 [Live Site](https://tgheadle1371.github.io/giphyAPI/)
 
-##Overview:
+## Overview:
 
 -   This simple app pre-populates the DOM with an array of buttons + topics that will access the top 10 gifs returned for that search term with Giphy.
 -   Gifs are displayed initially as still images that will animate on click.
