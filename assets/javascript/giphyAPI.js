@@ -148,30 +148,31 @@ $(document).ready(function () {
 
                     $("#gifs").append(gifDiv);
                 }
-                //      // When users click "save-name"
-                //      $("#favoritesBtn").on("click", function (event) {
-                //          // This line prevents the page from refreshing when a user hits "enter".
-                //          event.preventDefault();
+                // When users click "save-name"
+                $("#favoritesBtn").on("click", function (event) {
+                    // This line prevents the page from refreshing when a user hits "enter".
+                    event.preventDefault();
 
-                //          // Clear the HTML from the greeting header
-                //          $("#favorites").html("");
+                    // Clear the HTML from the greeting header
+                    $("#favorites").html("");
 
-                //          // Grab the user input
-                //          var favorites = $("#favorites").val().trim();
+                    // Grab the user input
+                    var favorites = "";
+                    favorites = $("#topic-input").val().trim();
+                    console.log(favorites);
+                    // Clear absolutely everything stored in localStorage using localStorage.clear()
+                    localStorage.clear();
 
-                //          // Clear absolutely everything stored in localStorage using localStorage.clear()
-                //          localStorage.clear();
+                    // Store the username into localStorage using "localStorage.setItem"
+                    localStorage.setItem("favorites", favorites);
 
-                //          // Store the username into localStorage using "localStorage.setItem"
-                //          localStorage.setItem("favorites-", favorites);
+                    // And display that name for the user using "localStorage.getItem"
+                    $("#favorites").append(localStorage.getItem("favorites"));
 
-                //          // And display that name for the user using "localStorage.getItem"
-                //          $("#favorites").text(localStorage.getItem("favorites"));
+                });
 
-                //      });
-
-                //      // By default (upon load) show the name stored in localStorage using "localStorage.getItem"
-                //      $("#greeting").text(localStorage.getItem("name"));
+                // By default (upon load) show the name stored in localStorage using "localStorage.getItem"
+                $("#greeting").text(localStorage.getItem("name"));
             });
 
         });
