@@ -1,6 +1,7 @@
-// On ready
-$(document).ready(function () {
+require("dotenv").config();
 
+// On ready
+$(document).ready(function() {
     // Global Variables
     var topics = [
         "Alabama",
@@ -56,11 +57,14 @@ $(document).ready(function () {
     ];
     //Functions
     //Create variable that is a function
-    var addBtn = function (search) {
+    var addBtn = function(search) {
         // Define searchBTN as a button element with set class and attr
-        var searchBtn = $('<button>').addClass("search btn btn-primary").attr("data-search", search).text(search);
+        var searchBtn = $("<button>")
+            .addClass("search btn btn-primary")
+            .attr("data-search", search)
+            .text(search);
         // on button click, run function
-        searchBtn.on("click", function () {
+        searchBtn.on("click", function() {
             //Play audiotag2
             var audio2 = document.getElementById("audiotag2");
             audio2.volume = 0.6;
@@ -68,15 +72,19 @@ $(document).ready(function () {
 
             // Build Giphy API search by defining topic, api key, and chaining URL
             var topic = $(this).attr("data-search");
-            var apiKey = "WSY305l72MwB3JpnUG74hV5Fp85piPgx";
+            var apiKey = process.env.GIF_KEY;
             //Api search + topic + limit of 10 + api key
-            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&limit=10&api_key=" + apiKey;
+            var queryURL =
+                "https://api.giphy.com/v1/gifs/search?q=" +
+                topic +
+                "&limit=10&api_key=" +
+                apiKey;
 
             //Ajax call
             $.ajax({
                 url: queryURL,
                 method: "GET"
-            }).done(function (response) {
+            }).done(function(response) {
                 //Log response
                 console.log(response);
 
@@ -105,17 +113,19 @@ $(document).ready(function () {
                     var gif = $("<img>").addClass("gif");
                     gif.attr("src", data[i].images.fixed_height_still.url);
                     gif.attr("data-gifImg", "still");
-                    gif.attr("data-still", data[i].images.fixed_height_still.url);
+                    gif.attr(
+                        "data-still",
+                        data[i].images.fixed_height_still.url
+                    );
                     gif.attr("data-animate", data[i].images.fixed_height.url);
 
-                    //Create gif on click play 
-                    gif.on("click", function () {
+                    //Create gif on click play
+                    gif.on("click", function() {
                         //Play audiotag3
                         var audio3 = document.getElementById("audiotag3");
                         var audio4 = document.getElementById("audiotag4");
                         audio3.volume = 0.6;
                         audio4.volume = 0.6;
-
 
                         //Create state variable for the playing state of the gif
                         var gifImg = $(this).attr("data-gifImg");
@@ -131,11 +141,9 @@ $(document).ready(function () {
                             $(this).attr("src", $(this).attr("data-still"));
                             audio4.play();
                         }
-
                     });
 
-
-                    //Append title rating and gif 
+                    //Append title rating and gif
                     title.appendTo(gifDiv);
                     rating.appendTo(gifDiv);
                     gif.appendTo(gifDiv);
@@ -145,11 +153,10 @@ $(document).ready(function () {
                     audio.volume = 0.4;
                     audio.play();
 
-
                     $("#gifs").append(gifDiv);
                 }
                 // When users click "save-name"
-                $("#favoritesBtn").on("click", function (event) {
+                $("#favoritesBtn").on("click", function(event) {
                     // This line prevents the page from refreshing when a user hits "enter".
                     event.preventDefault();
 
@@ -158,7 +165,9 @@ $(document).ready(function () {
 
                     // Grab the user input
                     var favorites = "";
-                    favorites = $("#topic-input").val().trim();
+                    favorites = $("#topic-input")
+                        .val()
+                        .trim();
                     console.log(favorites);
                     // Clear absolutely everything stored in localStorage using localStorage.clear()
                     localStorage.clear();
@@ -168,20 +177,17 @@ $(document).ready(function () {
 
                     // And display that name for the user using "localStorage.getItem"
                     $("#favorites").append(localStorage.getItem("favorites"));
-
                 });
 
                 // By default (upon load) show the name stored in localStorage using "localStorage.getItem"
                 $("#greeting").text(localStorage.getItem("name"));
             });
-
         });
         //Append topics
         $("#topics").append(searchBtn);
-
     };
     //Added topics to buttons
-    var addAllTopics = function () {
+    var addAllTopics = function() {
         for (var i = 0; i < topics.length; i++) {
             addBtn(topics[i]);
         }
@@ -189,14 +195,16 @@ $(document).ready(function () {
 
     //Event listener
     //Add gif On click function
-    $("#add").on("click", function (event) {
+    $("#add").on("click", function(event) {
         //Play audiotag2
         var audio5 = document.getElementById("audiotag5");
         audio5.volume = 0.6;
         audio5.play();
         //No refresh
         event.preventDefault();
-        var topic = $("#topic-input").val().trim();
+        var topic = $("#topic-input")
+            .val()
+            .trim();
 
         if (topic.length > 0) {
             topics.push(topic);

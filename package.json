@@ -1,0 +1,23 @@
+{
+  "name": "giphyAPI",
+  "version": "1.0.0",
+  "description": "[Live Site](https://tgheadle1371.github.io/giphyAPI/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TGHeadle1371/giphyAPI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TGHeadle1371/giphyAPI/issues"
+  },
+  "homepage": "https://github.com/TGHeadle1371/giphyAPI#readme",
+  "dependencies": {
+    "dotenv": "^7.0.0"
+  }
+}
